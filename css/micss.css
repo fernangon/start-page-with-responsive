@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+
+section {
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+   
+
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 100px;
+
+    background: url("../img/bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: absolute; 
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 30px 100px; 
+}
+
+
+
+header .logo {
+    
+    position: relative;
+    
+
+    font-size: 2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+
+
+header .navigation {
+    display: flex; 
+
+    
+    position: relative;
+    
+}
+
+
+header .navigation li {
+    list-style: none;
+}
+
+
+header .navigation li a {
+    display: inline-block;
+
+    margin-right: 40px;
+
+    text-decoration: none;
+    color: #fff;
+}
+
+header .navigation li a:hover {
+    color: #03a9f4;
+}
+
+
+.content {
+    max-width: 600px;
+}
+
+.content .contentBx h2 {
+    font-size: 4em;
+    line-height: 1em;
+    color: #fff;
+}
+
+.content .contentBx p {
+    margin: 20px 0; /* top/bottom = 20 ; right/left = 0 */
+    
+    font-size: 1.1em;
+    font-weight: 300;
+    color: #fff;
+}
+
+.content .contentBx a {
+    display: inline-block;
+
+    padding: 10px 30px;
+
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    background: #03a9f4;
+    color: #fff;
+}
+
+
+.sci {
+    display: flex; 
+
+    position: absolute; 
+    bottom: 30px;
+}
+
+.sci li {
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    
+
+    list-style: none;
+}
+
+.sci li a {
+    display: inline-block;
+
+    position: relative;
+
+    margin-right: 20px;
+
+    transform: scale(.5);
+
+    /* The filter property defines visual effects (like blur and saturation) to an element (often <img>). */
+    filter: invert(1); /* = filter: invert(100%); */    /* invert(%) = Inverts the samples in the image. */ 
+}
+
+
+
+
+/* MEDIA QUERIES -------------------------------------------------------------- */
+
+@media (max-width: 991px) {
+
+    header {
+        padding: 15px 40px;
+    }
+
+    section {
+        padding: 40px;
+
+        background: url("../img/bg2.jpg"); 
+        background-position: center;
+        background-size: cover;
+    }
+
+    .content .contentBx h2 {
+        font-size: 2.5em;
+    }
+
+    .content .contentBx p {
+        font-size: 1em;
+    }
+    
+    /*  Setting top: 0; left: 0; bottom: 0; right: 0; gives the browser a new bounding box for the block. 
+        At this point the block will fill all available space in its offset parent, which is the body or position: relative; container. 
+        Developer.mozilla.org: For absolutely positioned elements, the top, right, bottom, and left properties 
+        specify offsets from the edge of the element’s containing block (what the element is positioned relative to). 
+    */
+    /*  Más explicación:
+        https://stackoverflow.com/questions/28080910/what-does-top-0-left-0-bottom-0-right-0-mean
+    */
+    header .navigation {
+        display: none; /* --------------------------------------------> (1) */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        background: #000;
+
+        z-index: 10;
+    }
+
+    
+    header .navigation.active { 
+        display: flex; /* <-------------------------------------------- (1) */
+    }
+
+
+
+    header .navigation li a {
+        margin: 10px 0; /* top/down = 10 ; right/left = 0 */
+
+        font-size: 24px;
+    }
+
+   
+    .toggleMenu {
+        position: relative;
+
+        width: 30px;
+        height: 30px;
+
+        background: url("../img/menu.png");
+        background-position: center;
+        background-size: 30px;
+        background-repeat: no-repeat;
+
+        cursor: pointer;
+
+        z-index: 11;
+
+        /* transition: all .3s ease; */ 
+    }
+
+    
+    .toggleMenu.active {
+        background: url("../img/close.png");
+        background-position: center;
+        background-size: 25px;
+        background-repeat: no-repeat;
+
+        /* transition: all .3s ease; */ 
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
